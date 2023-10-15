@@ -54,7 +54,11 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
-  border-top: 4px solid ${COLORS.gray[900]};
+
+  @media ${QUERIES.tabletAndSmaller} {
+    border-top: 4px solid ${COLORS.gray[900]};
+    align-items: center;
+  }
 `;
 
 const DesktopNav = styled.nav`
@@ -74,6 +78,11 @@ const SmallNav = styled.nav`
         margin-left: auto;
         display: flex;
         justify-content: flex-end;
+        gap: 32px;
+    }
+
+    @media ${QUERIES.phoneAndSmaller} {
+        gap: 16px;
     }
 `
 
