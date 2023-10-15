@@ -31,12 +31,13 @@ const Header = () => {
                     <NavLink href="/kids">Kids</NavLink>
                     <NavLink href="/collections">Collections</NavLink>
                 </DesktopNav>
-                <SmallNav>
-                    <UnstyledButton><Icon id="search" /></UnstyledButton>
-                    <UnstyledButton><Icon id="shopping-bag" /></UnstyledButton>
-                    <UnstyledButton><Icon id="menu" /></UnstyledButton>
-                </SmallNav>
-                <Side />
+                <Side>
+                    <SmallNav>
+                        <UnstyledButton><Icon id="search" /></UnstyledButton>
+                        <UnstyledButton><Icon id="shopping-bag" /></UnstyledButton>
+                        <UnstyledButton><Icon id="menu" /></UnstyledButton>
+                    </SmallNav>
+                </Side>
             </MainHeader>
 
             <MobileMenu
