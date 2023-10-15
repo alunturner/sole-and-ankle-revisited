@@ -1,43 +1,50 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, QUERIES, WEIGHTS } from '../../constants';
+import Icon from '../Icon';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import UnstyledButton from '../UnstyledButton';
 
 const Header = () => {
-  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+    const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
-  // For our mobile hamburger menu, we'll want to use a button
-  // with an onClick handler, something like this:
-  //
-  // <button onClick={() => setShowMobileMenu(true)}>
+    // For our mobile hamburger menu, we'll want to use a button
+    // with an onClick handler, something like this:
+    //
+    // <button onClick={() => setShowMobileMenu(true)}>
 
-  return (
-    <header>
-      <SuperHeader />
-      <MainHeader>
-        <Side>
-          <Logo />
-        </Side>
-        <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
-        </Nav>
-        <Side />
-      </MainHeader>
+    return (
+        <header>
+            <SuperHeader />
+            <MainHeader>
+                <Side>
+                    <Logo />
+                </Side>
+                <DesktopNav>
+                    <NavLink href="/sale">Sale</NavLink>
+                    <NavLink href="/new">New&nbsp;Releases</NavLink>
+                    <NavLink href="/men">Men</NavLink>
+                    <NavLink href="/women">Women</NavLink>
+                    <NavLink href="/kids">Kids</NavLink>
+                    <NavLink href="/collections">Collections</NavLink>
+                </DesktopNav>
+                <SmallNav>
+                    <UnstyledButton><Icon id="search" /></UnstyledButton>
+                    <UnstyledButton><Icon id="shopping-bag" /></UnstyledButton>
+                    <UnstyledButton><Icon id="menu" /></UnstyledButton>
+                </SmallNav>
+                <Side />
+            </MainHeader>
 
-      <MobileMenu
-        isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(false)}
-      />
-    </header>
-  );
+            <MobileMenu
+                isOpen={showMobileMenu}
+                onDismiss={() => setShowMobileMenu(false)}
+            />
+        </header>
+    );
 };
 
 const MainHeader = styled.div`
@@ -49,11 +56,25 @@ const MainHeader = styled.div`
   border-top: 4px solid ${COLORS.gray[900]};
 `;
 
-const Nav = styled.nav`
+const DesktopNav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+      display: none
+  }
 `;
+
+const SmallNav = styled.nav`
+    display:none;
+
+    @media ${QUERIES.tabletAndSmaller} {
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+`
 
 const Side = styled.div`
   flex: 1;
