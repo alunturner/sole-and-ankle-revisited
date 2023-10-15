@@ -35,7 +35,7 @@ const Header = () => {
                     <SmallNav>
                         <UnstyledButton><Icon id="search" /></UnstyledButton>
                         <UnstyledButton><Icon id="shopping-bag" /></UnstyledButton>
-                        <UnstyledButton><Icon id="menu" /></UnstyledButton>
+                        <UnstyledButton onClick={() => setShowMobileMenu(true)}><Icon id="menu" /></UnstyledButton>
                     </SmallNav>
                 </Side>
             </MainHeader>
@@ -44,7 +44,7 @@ const Header = () => {
                 isOpen={showMobileMenu}
                 onDismiss={() => setShowMobileMenu(false)}
             />
-        </header>
+        </header >
     );
 };
 
