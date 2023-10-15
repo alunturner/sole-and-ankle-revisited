@@ -90,6 +90,10 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: baseline;
     position: relative;
+
+    @media ${QUERIES.tabletAndSmaller} {
+        align-items: flex-end;
+    }
 `;
 
 const Title = styled.h2`
